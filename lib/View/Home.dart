@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:gym_application/View/details.dart';
 
 import '../Constants/constants.dart';
 import '../Controller/item_Controller.dart';
@@ -72,10 +74,13 @@ class _HomeState extends State<Home> {
               const SizedBox(
                 width: 5,
               ),
-              const Icon(
-                Icons.arrow_forward,
-                color: Color.fromARGB(255, 49, 81, 222),
-                size: 16,
+              InkWell(
+                onTap: () => Get.to(() => const Details()),
+                child: const Icon(
+                  Icons.arrow_forward,
+                  color: Color.fromARGB(255, 49, 81, 222),
+                  size: 16,
+                ),
               ),
             ],
           ),
