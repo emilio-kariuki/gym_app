@@ -140,7 +140,7 @@ class _HomeState extends State<Home> {
                         padding: const EdgeInsets.only(top: 40),
                         child: Row(
                           children: [
-                            Icon(
+                            const Icon(
                               Icons.timer_outlined,
                               color: white,
                               size: 15,
@@ -303,6 +303,9 @@ class _HomeState extends State<Home> {
                     child: Padding(
                       padding: const EdgeInsets.symmetric(vertical: 15),
                       child: Column(children: [
+                        const SizedBox(
+                          height: 5,
+                        ),
                         Container(
                           height: 64,
                           width: 64,
@@ -354,6 +357,9 @@ class _HomeState extends State<Home> {
                     child: Padding(
                       padding: const EdgeInsets.symmetric(vertical: 15),
                       child: Column(children: [
+                        const SizedBox(
+                          height: 5,
+                        ),
                         Container(
                           height: 64,
                           width: 64,
