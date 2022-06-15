@@ -1,6 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gym_application/Constants/constants.dart';
+
+import '../Controller/item_Controller.dart';
 
 class Details extends StatefulWidget {
   const Details({Key? key}) : super(key: key);
@@ -10,19 +14,22 @@ class Details extends StatefulWidget {
 }
 
 class _DetailsState extends State<Details> {
+  final controller = Get.put(ItemController());
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: kBackgroundColor,
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                child: Row(
                   children: [
                     InkWell(
                       onTap: () => Navigator.pop(context),
@@ -45,10 +52,13 @@ class _DetailsState extends State<Details> {
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 20,
-                ),
-                Text(
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Text(
                   "Legs Toning",
                   style: GoogleFonts.lato(
                       textStyle: const TextStyle(
@@ -57,10 +67,13 @@ class _DetailsState extends State<Details> {
                     color: white,
                   )),
                 ),
-                const SizedBox(
-                  height: 5,
-                ),
-                Text(
+              ),
+              const SizedBox(
+                height: 5,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Text(
                   "and Glutes Workout",
                   style: GoogleFonts.lato(
                       textStyle: const TextStyle(
@@ -69,72 +82,150 @@ class _DetailsState extends State<Details> {
                     color: white,
                   )),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 40),
-                  child: Container(
-                    width: 65,
-                    padding: const EdgeInsets.all(2),
-                    decoration: BoxDecoration(
-                      color: const Color.fromARGB(255, 221, 221, 255),
-                      borderRadius: BorderRadius.circular(5),
+              ),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(top: 40),
+                      child: Container(
+                        width: 65,
+                        padding: const EdgeInsets.all(3),
+                        decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 124, 124, 217),
+                          borderRadius: BorderRadius.circular(6),
+                        ),
+                        child: Row(
+                          children: [
+                            const Icon(
+                              Icons.timer_outlined,
+                              color: white,
+                              size: 15,
+                            ),
+                            const SizedBox(
+                              width: 5,
+                            ),
+                            Text(
+                              "60 min",
+                              style: GoogleFonts.lato(
+                                  textStyle: const TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.w500,
+                                color: white,
+                              )),
+                            ),
+                          ],
+                        ),
+                      ),
                     ),
-                    child: Row(
+                    Expanded(child: Container()),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 40),
+                      child: Container(
+                        width: 170,
+                        padding: const EdgeInsets.all(3),
+                        decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 124, 124, 217),
+                          borderRadius: BorderRadius.circular(6),
+                        ),
+                        child: Row(
+                          children: [
+                            const Icon(
+                              CupertinoIcons.antenna_radiowaves_left_right,
+                              color: white,
+                              size: 15,
+                            ),
+                            const SizedBox(
+                              width: 5,
+                            ),
+                            Text(
+                              "Resistent Band, kettlebell",
+                              style: GoogleFonts.lato(
+                                  textStyle: const TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.w500,
+                                color: white,
+                              )),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                width: double.infinity,
+                height: size.height * 0.7,
+                decoration: const BoxDecoration(
+                    color: white,
+                    borderRadius:
+                        BorderRadius.only(topRight: Radius.circular(70))),
+                child: Column(
+                  children: [
+                    Row(
                       children: [
-                        const Icon(
-                          Icons.timer_outlined,
-                          color: white,
-                          size: 15,
-                        ),
-                        const SizedBox(
-                          width: 5,
-                        ),
                         Text(
-                          "60 min",
+                          "Circuit 1 : Legs Toning",
                           style: GoogleFonts.lato(
                               textStyle: const TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.w500,
-                            color: white,
+                            fontSize: 21,
+                            fontWeight: FontWeight.w600,
+                            color: kBackgroundColor,
                           )),
                         ),
+                        Expanded(child: Container()),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 10),
+                          child: SizedBox(
+                            child: Row(
+                              children: [
+                                const Icon(
+                                  CupertinoIcons.refresh_circled,
+                                  size: 20,
+                                  color: kBackgroundColor,
+                                ),
+                                Text(
+                                  "3 sets",
+                                  style: GoogleFonts.lato(
+                                      textStyle: const TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w600,
+                                    color: kBackgroundColor,
+                                  )),
+                                ),
+                              ],
+                            ),
+                          ),
+                        )
                       ],
                     ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 40),
-                  child: Container(
-                    width: 65,
-                    padding: const EdgeInsets.all(2),
-                    decoration: BoxDecoration(
-                      color: const Color.fromARGB(255, 221, 221, 255),
-                      borderRadius: BorderRadius.circular(5),
-                    ),
-                    child: Row(
-                      children: [
-                        const Icon(
-                          Icons.timer_outlined,
+                    ListView.builder(itemBuilder: (context, index) {
+                      return Container(
+                        decoration: BoxDecoration(
                           color: white,
-                          size: 15,
+                          borderRadius: BorderRadius.circular(15),
                         ),
-                        const SizedBox(
-                          width: 5,
+                        child: Row(
+                          children: [
+                            GetX<ItemController>(
+                              builder: (controlleer) {
+                                return Container(
+                                    decoration: const BoxDecoration());
+                              },
+                            )
+                          ],
                         ),
-                        Text(
-                          "60 min",
-                          style: GoogleFonts.lato(
-                              textStyle: const TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.w500,
-                            color: white,
-                          )),
-                        ),
-                      ],
-                    ),
-                  ),
+                      );
+                    })
+                  ],
                 ),
-              ],
-            ),
+              )
+            ],
           ),
         ),
       ),

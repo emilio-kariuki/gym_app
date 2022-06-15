@@ -14,7 +14,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  final controller = ItemController();
+  final controller = Get.put(ItemController());
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
