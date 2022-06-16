@@ -276,7 +276,7 @@ class _HomeState extends State<Home> {
             style: normalText,
           ),
         ),
-        Container(
+        SizedBox(
           width: double.infinity,
           height: size.height * 0.35,
           child: ListView.builder(
@@ -316,8 +316,8 @@ class _HomeState extends State<Home> {
                           width: 64,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(15),
-                            image: DecorationImage(
-                              image: AssetImage(controller.items[index].image!),
+                            image: const DecorationImage(
+                              image: AssetImage("assets/beard.png"),
                               fit: BoxFit.fill,
                             ),
                           ),
@@ -370,9 +370,8 @@ class _HomeState extends State<Home> {
                           width: 64,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(15),
-                            image: DecorationImage(
-                              image: AssetImage(
-                                  controller.items[index + 1].image!),
+                            image: const DecorationImage(
+                              image: AssetImage("assets/girl.jpg"),
                               fit: BoxFit.fill,
                             ),
                           ),

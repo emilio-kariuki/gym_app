@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gym_application/Constants/constants.dart';
-
 import '../Controller/item_Controller.dart';
 
 class Details extends StatefulWidget {
@@ -204,28 +203,62 @@ class _DetailsState extends State<Details> {
                         )
                       ],
                     ),
-                    ListView.builder(itemBuilder: (context, index) {
-                      return Container(
-                        decoration: BoxDecoration(
-                          color: white,
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        child: Row(
-                          children: [
-                            GetX<ItemController>(
-                              builder: (controller) {
-                                return Container(
-                                  decoration: BoxDecoration(
-                                    color: white,
-                                    borderRadius: BorderRadius.circular(15),
+                    ListView.builder(
+                        scrollDirection: Axis.vertical,
+                        shrinkWrap: true,
+                        itemCount: controller.items.length,
+                        itemBuilder: (context, index) {
+                          return Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 5, vertical: 6),
+                            child: SizedBox(
+                              child: Column(children: [
+                                ListTile(
+                                  leading: Container(
+                                    width: size.width * 0.2,
+                                    height: size.height * 0.3,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(6),
+                                      image: DecorationImage(
+                                        image: AssetImage(
+                                            controller.items[index].image!),
+                                        fit: BoxFit.fill,
+                                      ),
+                                    ),
                                   ),
-                                );
-                              },
-                            )
-                          ],
-                        ),
-                      );
-                    })
+                                  title: Text(
+                                    "${controller.items[index].category}",
+                                    style: GoogleFonts.lato(
+                                        textStyle: const TextStyle(
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w600,
+                                      color: Colors.black45,
+                                    )),
+                                  ),
+                                  subtitle: Text(
+                                    "${controller.items[index].description}",
+                                    style: GoogleFonts.lato(
+                                        textStyle: const TextStyle(
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w600,
+                                      color: Colors.black45,
+                                    )),
+                                  ),
+                                ),
+                                Wrap(
+                                  direction: Axis.horizontal,
+                                  children: List.generate(
+                                      60,
+                                      (index) => const Text("-",
+                                          style: TextStyle(
+                                              fontSize: 15,
+                                              fontWeight: FontWeight.w600,
+                                              color: Colors.black45))),
+                                ),
+                              ]),
+                            ),
+                          );
+                        })
                   ],
                 ),
               )

@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../Fetch/fetch_data.dart';
 import '../Model/item_model.dart';
 
@@ -15,10 +13,11 @@ class ItemController extends GetxController {
   }
 
   List<ItemModel> items = [
-    ItemModel("Glues", "assets/up.jpg"),
-    ItemModel("Abs", "assets/pull.jpg"),
-    ItemModel("Arms", "assets/weights.jpg"),
-    ItemModel("Legs", "assets/legs.jpg")
+    ItemModel("Glues", "assets/up.jpg", "The exercise is of the glutes"),
+    ItemModel("Abs", "assets/weights.jpg", "The exercise is used to bring abs"),
+    ItemModel(
+        "Arms", "assets/pull.jpg", "This exercise helps one get strong arms"),
+    ItemModel("Legs", "assets/legs.jpg", "This exercise builds strong legs")
   ];
   void fetchProducts() async {
     try {

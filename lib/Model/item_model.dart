@@ -4,7 +4,9 @@ class ItemModel {
   String? category;
   String? image;
 
-  ItemModel(this.category, this.image);
+  String? description;
+
+  ItemModel(this.category, this.image, this.description);
 }
 
 // To parse this JSON data, do
