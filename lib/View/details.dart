@@ -213,9 +213,13 @@ class _DetailsState extends State<Details> {
                         child: Row(
                           children: [
                             GetX<ItemController>(
-                              builder: (controlleer) {
+                              builder: (controller) {
                                 return Container(
-                                    decoration: const BoxDecoration());
+                                  decoration: BoxDecoration(
+                                    color: white,
+                                    borderRadius: BorderRadius.circular(15),
+                                  ),
+                                );
                               },
                             )
                           ],
